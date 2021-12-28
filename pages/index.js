@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Nav from "../Components/nav";
 
 export default function Home() {
   return (
@@ -14,13 +15,7 @@ export default function Home() {
           href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
         />
       </Head>
-      <div className={"ui pointing menu " + styles.nav} >
-        <a className="active item">Home</a>
-        <a className="item" href="/about"> About</a>
-        <a className="item">Gallery</a>
-        <a className="item">Puppy Essentials</a>
-      </div>
-
+      <Nav />
       <main className={styles.main}>
         {/* <h1 className={styles.title}>Welcome to Robbie's World</h1> */}
         <div className={styles.banner}>

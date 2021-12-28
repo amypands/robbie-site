@@ -29,10 +29,11 @@
   }
 
 .gifColumn {
-    background-image: url("/robbie.gif");
+    background-image: url("/robbie.png");
     background-size:cover;
     height: 100%;
     width: 50%;
+    transform: scaleX(-1);
 }
 
 .aboutMe {

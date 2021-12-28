@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/about.module.css";
+import Nav from "../Components/nav";
 
 export default function About() {
   return (
@@ -14,22 +15,15 @@ export default function About() {
           href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
         />
       </Head>
-      <div className={"ui pointing menu " + styles.nav} >
-        <a className="item" href="/">Home</a>
-        <a className="active item" href="/about">About</a>
-        <a className="item">Gallery</a>
-        <a className="item">Puppy Essentials</a>
-      </div>
-
+      <Nav />
       <main className={styles.main}>
-          
-       <div className={styles.aboutMe}>
-           <div className={styles.text}>
-               <h1>About Lil 'ol Me</h1>
-               <p>text</p>
-           </div>
-           <div className={styles.gifColumn}></div>
-       </div>
+        <div className={styles.aboutMe}>
+          <div className={styles.gifColumn}></div>
+          <div className={styles.text}>
+            <h1>About Lil 'ol Me</h1>
+            <p>text</p>
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
