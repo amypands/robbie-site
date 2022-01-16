@@ -1,52 +1,160 @@
 import Head from "next/head";
 import styles from "../../styles/about.module.css";
 import Nav from "../../Components/nav";
-import { Card, Icon, Image, Grid } from "semantic-ui-react";
+import { Icon, Image } from "semantic-ui-react";
+import Styles from "../../styles/image.module.css";
+import { useState } from "react";
+import Carousel from "../../styles/carousel.module.css";
 
 export default function Other() {
+  const [index, setIndex] = useState(0);
+
   const cards = [
     {
-      img: "/IMG_0005.jpeg",
-      date: "December 2019",
-      description: "first day at home",
+      img: "/1c779949-e1c2-4088-9639-32c818ecaf4e.jpeg",
+      date: "June 2020",
+      description: "Waking up mom",
     },
     {
-      img: "/f0747372-3159-487f-87d3-d18fa2796cd5.jpeg",
-      date: "December 2019",
-      description: "first day at home",
+      img: "/5d3f2457-fea5-4670-87ab-c5798b88b507.jpeg",
+      date: "December 2021",
+      description: "Dogs in stem",
     },
     {
-      img: "/IMG_6022.jpeg",
-      date: "January 2020",
-      description: "first time at the vet",
+      img: "/36DDC339-D52D-4C63-BF6D-67CD64173A46.jpeg",
+      date: "October 2020",
+      description: "Mom and me",
     },
+   
     {
-      img: "/IMG_5559.jpeg",
-      date: "January 2020",
-      description: "learning to sit",
-    },
-    {
-      img: "/IMG_4868.jpeg",
-      date: "December 2019",
-      description: "journey home",
+      img: "/69aa1313-4278-4b8f-bcc7-31358403af1f.jpeg",
+      date: "Jult 2020",
+      description: "Summer boy",
     },
 
     {
-      img: "/IMG_5055.jpeg",
-      date: "December 2019",
-      description: "potty training",
+      img: "/78145eca-bcf2-48e1-8d43-444c79639d30.jpeg",
+      date: "August 2021",
+      description: "Sundried",
     },
+   
     {
-      img: "/IMG_5226.jpeg",
-      date: "December 2019",
-      description: "baby teeth",
-    },
-    {
-      img: "/IMG_9320.jpeg",
+      img: "/b492af3c-fbf4-4a46-be94-ca9b3c88112b.jpeg",
       date: "June 2020",
-      description: "faded",
+      description: "Big Smile",
+    },
+
+    {
+      img: "/IMG_0094.jpeg",
+      date: "September 2021",
+      description: "Pile of Puppy",
+    },
+
+    {
+      img: "/IMG_0124.jpeg",
+      date: "October 2021",
+      description: "Golden x Golden",
+    },
+
+    {
+      img: "/IMG_0206.jpeg",
+      date: "October 2021",
+      description: "King of the Castle",
+    },
+
+    {
+      img: "/IMG_0431.jpeg",
+      date: "October 2020",
+      description: "Looking for rabbits",
+    },
+
+    {
+      img: "/IMG_0432.jpeg",
+      date: "May 2020",
+      description: "Twins",
+    },
+
+    
+    {
+      img: "/IMG_0435.jpeg",
+      date: "September 2020",
+      description: "Don't look up",
+    },
+
+      
+    {
+      img: "/IMG_0440.jpeg",
+      date: "December 2021",
+      description: "Sir Robbie",
+    },
+
+    
+    
+    {
+      img: "/IMG_0628.jpeg",
+      date: "December 2021",
+      description: "Not his first Christmas",
+    },
+
+    {
+      img: "/IMG_3588.jpeg",
+      date: "May 2020",
+      description: "Double cheeked up",
+    },
+
+    {
+      img: "/IMG_5356.jpeg",
+      date: "May 2020",
+      description: "Bench Warmer",
+    },
+
+    {
+      img: "/IMG_7007.jpeg",
+      date: "May 2020",
+      description: "No Cap",
+    },
+    {
+      img: "/IMG_8291.jpeg",
+      date: "May 2020",
+      description: "Forget me nots",
+    },
+    {
+      img: "/IMG_9287.jpeg",
+      date: "November 2021",
+      description: "Do not disturb",
+    },
+    {
+      img: "/IMG_9398.jpeg",
+      date: "November 2021",
+      description: "Robbie and Shadow",
+    },
+    {
+      img: "/IMG_9628.jpeg",
+      date: "June 2021",
+      description: "Robbie and Ness",
+    },
+    {
+      img: "/IMG_9885.jpeg",
+      date: "October 2021",
+      description: "Fall Vibes",
     },
   ];
+
+  const nextImage = () => {
+    if (index === cards.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
+  const previousImage = () => {
+    if (index === 0) {
+      setIndex(cards.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -60,25 +168,23 @@ export default function Other() {
       </Head>
       <Nav />
       <main className={styles.main}>
-        <Grid>
-          <Grid.Row columns={4}>
-            {cards.map((robbiecard) => {
-              return (
-                <Grid.Column>
-                  <Card>
-                    <Image src={robbiecard.img} wrapped ui={false} />
-                    <Card.Content>
-                      <Card.Meta>{robbiecard.date}</Card.Meta>
-                      <Card.Description>
-                        {robbiecard.description}
-                      </Card.Description>
-                    </Card.Content>
-                  </Card>
-                </Grid.Column>
-              );
-            })}
-          </Grid.Row>
-        </Grid>
+        <div className={Carousel.carousel}>
+        <div>
+          <button className={Carousel.arrowButton} onClick={previousImage}>
+            <Icon name="angle left"></Icon>
+          </button>
+        </div>
+        <div className={Carousel.imageContainer}>
+          <Image className={Styles.image} src={cards[index].img} />
+          <p>{cards[index].date} </p>
+          <p>{cards[index].description}</p>
+        </div>
+        <div>
+          <button className={Carousel.arrowButton} onClick={nextImage}>
+            <Icon name="angle right"></Icon>
+          </button>
+        </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>

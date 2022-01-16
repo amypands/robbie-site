@@ -1,9 +1,14 @@
 import Head from "next/head";
 import styles from "../../styles/about.module.css";
 import Nav from "../../Components/nav";
-import { Card, Icon, Image, Grid } from "semantic-ui-react";
+import { Icon, Image } from "semantic-ui-react";
+import Styles from "../../styles/image.module.css";
+import { useState } from "react";
+import Carousel from "../../styles/carousel.module.css";
 
 export default function School() {
+  const [index, setIndex] = useState(0);
+
   const cards = [
     {
       img: "/IMG_0443.jpeg",
@@ -47,6 +52,22 @@ export default function School() {
       description: "my friend Salazar",
     },
   ];
+
+  const nextImage = () => {
+    if (index === cards.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
+  const previousImage = () => {
+    if (index === 0) {
+      setIndex(cards.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -60,25 +81,23 @@ export default function School() {
       </Head>
       <Nav />
       <main className={styles.main}>
-        <Grid>
-          <Grid.Row columns={4} stretched>
-            {cards.map((robbiecard) => {
-              return (
-                <Grid.Column>
-                  <Card>
-                    <Image src={robbiecard.img} wrapped ui={false} />
-                    <Card.Content>
-                      <Card.Meta>{robbiecard.date}</Card.Meta>
-                      <Card.Description>
-                        {robbiecard.description}
-                      </Card.Description>
-                    </Card.Content>
-                  </Card>
-                </Grid.Column>
-              );
-            })}
-          </Grid.Row>
-        </Grid>
+        <div className={Carousel.carousel}>
+        <div>
+          <button className={Carousel.arrowButton} onClick={previousImage}>
+            <Icon name="angle left"></Icon>
+          </button>
+        </div>
+        <div className={Carousel.imageContainer}>
+          <Image className={Styles.image} src={cards[index].img} />
+          <p>{cards[index].date} </p>
+          <p>{cards[index].description}</p>
+        </div>
+        <div>
+          <button className={Carousel.arrowButton} onClick={nextImage}>
+            <Icon name="angle right"></Icon>
+          </button>
+        </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
