@@ -19,7 +19,7 @@ export default function Home() {
       <main className={styles.main}>
         {/* <h1 className={styles.title}>Welcome to Robbie's World</h1> */}
         <div className={styles.banner}>
-          <h1 className={styles.title}>Welcome to Robbie's World</h1>
+          <h1 className={styles.title}>Welcome to Robbie&apos;s World</h1>
           <div className={styles.bgimage}></div>
         </div>
       </main>

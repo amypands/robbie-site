@@ -20,7 +20,7 @@ export default function About() {
         <div className={styles.aboutMe}>
           <div className={styles.gifColumn}></div>
           <div className={styles.text}>
-            <h1>About Lil 'ol Me</h1>
+            <h1>About Lil  &apos;ol Me</h1>
             <p>text</p>
           </div>
         </div>

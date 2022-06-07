@@ -5,6 +5,7 @@ import { Input, Menu, Segment, Dropdown, Button } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import Styles from "../styles/button.module.css";
 import navStyles from "../styles/nav.module.css";
+import Link from "next/link";
 
 export default function Nav() {
   const router = useRouter();
@@ -16,44 +17,47 @@ export default function Nav() {
         <span
           className={`${Styles.pillButton} ${
             activeItem === "/" ? Styles.active : ""
-          }`}
+          }
+          ${activeItem !== "/" ? Styles.buttonWhite : ""}`}
         >
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
         </span>
         <span
           className={`${Styles.pillButton} ${
             activeItem === "/about" ? Styles.active : ""
-          }`}
+          }
+          ${activeItem !== "/" ? Styles.buttonWhite : ""}`}
         >
-          <a href="/about">About</a>
+          <Link href="/about">About</Link>
         </span>
         <Dropdown
           text="Gallery"
           pointing
           className={`${Styles.pillButton} ${
             activeItem === "/gallery" ? Styles.active : ""
-          }`}
+          }
+          ${activeItem !== "/" ? Styles.buttonWhite : ""}`}
         >
           <Dropdown.Menu>
             <Dropdown.Header>Categories</Dropdown.Header>
             <Dropdown.Item>
-              <a href="/gallery/baby">Baby Photos</a>
+              <Link href="/gallery/baby">Baby Photos</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <a href="/gallery/Other">Other</a>
+              <Link href="/gallery/Other">Other</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <a href="/gallery/school">School Pictures</a>
+              <Link href="/gallery/school">School Pictures</Link>
             </Dropdown.Item>
-            <Dropdown.Item>Videos</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <span
           className={`${Styles.pillButton} ${
             activeItem === "/shopping" ? Styles.active : ""
-          }`}
+          }
+          ${activeItem !== "/" ? Styles.buttonWhite : ""}`}
         >
-          <a href="/shopping">Favourites</a>
+          <Link href="/shopping">Favourites</Link>
         </span>
       </div>
     </div>
