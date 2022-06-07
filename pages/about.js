@@ -21,7 +21,7 @@ export default function About() {
           <div className={styles.gifColumn}></div>
           <div className={styles.text}>
             <h1>About Lil  &apos;ol Me</h1>
-            <p>text</p>
+            <p>Just a 2 year old rescue living in Toronto, ON. mixed breed, 50% cute and 50% adorable.</p>
           </div>
         </div>
       </main>
