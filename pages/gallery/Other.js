@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../../styles/about.module.css";
-import Nav from "../../Components/nav";
+import Nav from "../../components/nav";
 import { Icon, Image } from "semantic-ui-react";
 import Styles from "../../styles/image.module.css";
 import { useState } from "react";

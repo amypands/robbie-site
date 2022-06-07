@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../Components/nav";
+import Nav from "../components/nav";
 import Head from "next/head";
 import { Button, Card, Image, Icon } from "semantic-ui-react";
 import shopping from "../styles/shopping.module.css";
